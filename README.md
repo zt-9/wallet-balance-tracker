@@ -1,50 +1,27 @@
 # Wallet Tracker
 
-Track wallet balances across multiple EVM-compatible networks (Ethereum, Polygon, Arbitrum, Optimism, Base, etc.) with historical data, SQLite backend, and terminal/web UIs.
+Track historical wallet balances across any EVM-compatible network with support for native tokens and custom ERC20 tokens.
 
 ## Prerequisites
 
 - Node.js v18+
 - pnpm (or npm)
 
-## Install
+## Installation
 
 ```sh
 pnpm install
-# or
-npm install
 ```
 
-## Configure
+## Configuration
 
-Edit `wallets.toml` to set up:
+Edit `config.toml` to set up:
 
 - Networks (id, name, rpc_url, native_token, tokens)
-- Wallet addresses
+- Wallet addresses file
 - `history_days` (number of days to backfill)
 
-Example:
-
-```toml
-wallets = [
-  { address = "0x1234567890123456789012345678901234567890", label = "Main Wallet" },
-  { address = "0x0987654321098765432109876543210987654321", label = "Trading Wallet" }
-]
-
-history_days = 7
-
-[[networks]]
-id = 1
-name = "Ethereum"
-rpc_url = "https://eth-mainnet.g.alchemy.com/v2/your-key"
-[native_token]
-symbol = "ETH"
-decimals = 18
-[[networks.tokens]]
-address = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
-symbol = "USDC"
-decimals = 6
-```
+Create a `.env` file containing all the RPC URLs used in `config.toml`
 
 ## Usage
 
@@ -60,14 +37,14 @@ pnpm dev-fetcher
 pnpm dev-ui
 ```
 
-**Web UI:**
+![Terminal UI Demo](assets/terminal-ui-demo.png)
 
-```sh
-pnpm dev-web
-```
-
-- Data is stored in `balances.db` (SQLite)
+- Data is stored in `data/balances.db` (SQLite)
 - Only missing or outdated data is fetched
+
+## Future Plans
+
+- [ ] Web UI with interactive charts and filters
 
 ---
 
