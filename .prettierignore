@@ -1,0 +1,5 @@
+/.husky
+/lib
+/pnpm-lock.yaml
+contracts
+node_modules

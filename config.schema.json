@@ -1,0 +1,87 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "Wallet Tracker Configuration",
+	"description": "Configuration schema for the wallet tracker application",
+	"type": "object",
+	"required": ["update_interval", "history_days", "networks", "wallets"],
+	"properties": {
+		"update_interval": {
+			"type": "integer",
+			"description": "Update interval in seconds",
+			"minimum": 1
+		},
+		"history_days": {
+			"type": "integer",
+			"description": "Number of days of history to keep",
+			"minimum": 1
+		},
+		"networks": {
+			"type": "array",
+			"description": "List of networks to track",
+			"items": {
+				"type": "object",
+				"required": ["id", "name", "rpc_url", "native_token", "tokens"],
+				"properties": {
+					"id": {
+						"type": "integer",
+						"description": "Chain ID of the network"
+					},
+					"name": {
+						"type": "string",
+						"description": "Name of the network"
+					},
+					"rpc_url": {
+						"type": "string",
+						"description": "RPC URL for the network (can use ${ENV_VAR} syntax)"
+					},
+					"native_token": {
+						"type": "string",
+						"description": "Address of the native token (usually 0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee)"
+					},
+					"tokens": {
+						"type": "array",
+						"description": "List of tokens to track on this network",
+						"items": {
+							"type": "object",
+							"required": ["address", "symbol", "decimals"],
+							"properties": {
+								"address": {
+									"type": "string",
+									"description": "Contract address of the token"
+								},
+								"symbol": {
+									"type": "string",
+									"description": "Token symbol"
+								},
+								"decimals": {
+									"type": "integer",
+									"description": "Number of decimals for the token",
+									"minimum": 0
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"wallets": {
+			"type": "array",
+			"description": "List of wallet addresses to track",
+			"items": {
+				"type": "object",
+				"required": ["address"],
+				"properties": {
+					"address": {
+						"type": "string",
+						"description": "Wallet address to track",
+						"pattern": "^0x[a-fA-F0-9]{40}$"
+					},
+					"label": {
+						"type": "string",
+						"description": "Optional label for the wallet"
+					}
+				}
+			}
+		}
+	}
+}

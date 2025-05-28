@@ -1,0 +1,21 @@
+# note: the file name is important, it must be `action.yml`
+name: Prepare
+description: Prepares pnpm and node for the CI job
+
+runs:
+  using: composite
+  steps:
+    - name: Setup pnpm 10
+      uses: pnpm/action-setup@v4
+      with:
+        version: 10
+
+    - name: Setup node 23
+      uses: actions/setup-node@v4
+      with:
+        cache: pnpm
+        node-version: '23'
+
+    - name: Install dependencies
+      run: pnpm install --frozen-lockfile
+      shell: bash #required property.

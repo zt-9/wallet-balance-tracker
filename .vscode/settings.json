@@ -1,0 +1,18 @@
+{
+	"eslint.validate": ["javascript", "typescript"],
+	"eslint.run": "onSave",
+	"eslint.rules.customizations": [
+		{
+			"rule": "*",
+			"severity": "warn"
+		}
+	],
+	"toml.schemas": [
+		{
+			"fileMatch": ["config.toml"],
+			"url": "./config.schema.json"
+		}
+	],
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "tamasfe.even-better-toml"
+}
