@@ -45,6 +45,7 @@ pnpm dev-ui
 ## Future Plans
 
 - [ ] Web UI with interactive charts and filters
+- [ ] Show Uniswap v3/v4 position fees
 
 ---
 
