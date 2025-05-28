@@ -1,7 +1,7 @@
 {
-	"name": "ts-node-template",
+	"name": "wallet-balance-tracker",
 	"version": "1.0.0",
-	"description": "ts node template",
+	"description": "Track historical wallet balances across any EVM-compatible network with support for native tokens and custom ERC20 tokens.",
 	"license": "MIT",
 	"type": "module",
 	"main": "dist/index.js",
