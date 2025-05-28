@@ -4,8 +4,8 @@ Track historical wallet balances across any EVM-compatible network with support 
 
 ## Prerequisites
 
-- Node.js v18+
-- pnpm (or npm)
+- Node.js v22+
+- pnpm
 
 ## Installation
 
